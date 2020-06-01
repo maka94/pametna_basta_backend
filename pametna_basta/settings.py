@@ -25,7 +25,7 @@ SECRET_KEY = 'a@cc&3+6%!c^wn-s(f7k^=#qv^^ym0(7gszry8fv+z$$fm(jns'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 REDIS_HOST = "localhost"
 
