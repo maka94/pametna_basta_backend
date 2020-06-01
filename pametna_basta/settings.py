@@ -29,9 +29,6 @@ ALLOWED_HOSTS = []
 
 REDIS_HOST = "localhost"
 
-CELERY_BROKER_URL = os.getenv("BROKER_URL", f"redis://{REDIS_HOST}:6379/0")
-CELERY_RESULT_BACKEND = 'django-db'
-
 # Application definition
 
 INSTALLED_APPS = [
