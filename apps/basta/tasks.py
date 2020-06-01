@@ -1,12 +1,8 @@
-from celery import shared_task
+
 import requests, datetime
 from apps.basta.models import DnevnaTabela, ArhivskaTabela
 
-@shared_task
-def test():
-    return 1
 
-@shared_task
 def get_weatherAPI_data():
     data = requests.get('https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}&units={2}'.format('Beograd',
      '4e5756bc68c875c90215ba8f05e32fe3','metric'))
@@ -18,7 +14,7 @@ def get_weatherAPI_data():
     DnevnaTabela.objects.create(temperatura=temperatura, vlaznost_vazduha=vlaznost_vazduha,
                                 vazdusni_pritisak=vazdusni_pritisak, vlaznost_zemljista=clouds)
 
-@shared_task
+
 def daily_averages():
     queryset = DnevnaTabela.objects.all()
 
