@@ -1,0 +1,5 @@
+#scheduler:
+celery -A pametna_basta beat --scheduler django_celery_beat.schedulers:DatabaseScheduler -l debug
+
+#worker:
+celery -A pametna_basta worker -l info --without-gossip --without-mingle --without-heartbeat -Ofair -P solo
