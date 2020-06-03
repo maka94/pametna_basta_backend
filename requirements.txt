@@ -4,7 +4,7 @@ asgiref==3.2.7
 billiard==3.6.3.0
 certifi==2020.4.5.1
 chardet==3.0.4
-Django==3.0.6
+Django==2.2.12
 django-timezone-field==4.0
 djangorestframework==3.11.0
 idna==2.9
@@ -13,7 +13,6 @@ pyserial==3.4
 python-crontab==2.5.1
 python-dateutil==2.8.1
 pytz==2020.1
-redis==3.5.2
 requests==2.23.0
 six==1.14.0
 sqlparse==0.3.1
