@@ -1,6 +1,8 @@
-import serial
+import serial, time
 
 komunikacija = serial.Serial("/dev/ttyUSB0", 115200)
 
-sifra = 2
-komunikacija.write(str(sifra).encode("UTF-8"))
+
+def komanda(sifra):
+    time.sleep(5)
+    komunikacija.write(str(sifra).encode("UTF-8"))
