@@ -6,6 +6,7 @@ from rest_framework import views, response
 from apps.basta.serializers import IstorijaZalivanjaSerializer, TrenutniUsloviSerializer, PodaciSaSenzoraSerializer, RelaySerializer
 from apps.basta.models import ArhivskaTabela, DnevnaTabela
 import os
+from apps.basta import relejon as rl
 
 User = get_user_model()
 
@@ -59,7 +60,9 @@ class RelayOnView(views.APIView):
         turn_on = serializer.validated_data['ukljuci']
 
         if turn_on == True:
-            os.system("python apps/basta/relejon.py")
+            rl.komanda(4)
+            rl.komanda(2)
+            rl.komanda(0)
             return response.Response(serializer.data)
         else:
             os.system("python apps/basta/relejoff.py")
