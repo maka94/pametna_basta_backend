@@ -38,14 +38,20 @@ class UpisiPodatkeSaSenzoraView(views.APIView):
 
         temperatura = serializer.validated_data['temp']
         vlaznost_vazduha = serializer.validated_data['vlaznost_vazduha']
-        vazdusni_pritisak = serializer.validated_data['vazdusni_pritisak']
         vlaznost_zemljista = serializer.validated_data['vlaznost_zemljista']
+        kisa = serializer.validated_data['kisa']
+        zalivanje = serializer.validated_data['zalivanje']
+        otvoren_prozor = serializer.validated_data['otvoren_prozor']
+        ventilator = serializer.validated_data['radi_ventilator']
 
         DnevnaTabela.objects.create(
             temperatura=temperatura,
             vlaznost_vazduha=vlaznost_vazduha,
-            vazdusni_pritisak=vazdusni_pritisak,
-            vlaznost_zemljista=vlaznost_zemljista
+            kisa=kisa,
+            vlaznost_zemljista=vlaznost_zemljista,
+            zalivanje=zalivanje,
+            radi_ventilator=ventilator,
+            otvoren_prozor=otvoren_prozor
         )
 
         print(serializer.validated_data)
