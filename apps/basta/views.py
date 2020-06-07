@@ -1,13 +1,13 @@
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.authtoken.models import Token
 from django.contrib.auth import get_user_model
 from rest_framework import views, response
 from apps.basta.serializers import IstorijaZalivanjaSerializer, TrenutniUsloviSerializer, PodaciSaSenzoraSerializer, RelaySerializer
 from apps.basta.models import ArhivskaTabela, DnevnaTabela
-import os
-from apps.basta import relejon as rl
+import os, time, serial
+#from apps.basta import relejon as rl
 
+#komunikacija = serial.Serial("/dev/ttyUSB0", 115200)
 User = get_user_model()
 
 class IstorijaZalivanjaView(views.APIView):
@@ -59,11 +59,16 @@ class RelayOnView(views.APIView):
 
         turn_on = serializer.validated_data['ukljuci']
 
-        if turn_on == True:
-            rl.komanda(4)
-            rl.komanda(2)
-            rl.komanda(0)
-            return response.Response(serializer.data)
-        else:
-            os.system("python apps/basta/relejoff.py")
-            return response.Response(serializer.data)
+        def komanda(sifra):
+            time.sleep(5)
+            # komunikacija.write(str(sifra).encode("UTF-8"))
+
+        komanda(turn_on)
+        #if turn_on == 0:
+            #rl.komanda(4)
+            #rl.komanda(2)
+            #rl.komanda(0)
+        #else:
+           # os.system("python apps/basta/relejoff.py")
+           # return response.Response(serializer.data)
+        return response.Response(serializer.data)
