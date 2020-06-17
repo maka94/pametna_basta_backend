@@ -20,8 +20,6 @@ class IstorijaZalivanjaView(views.APIView):
         return response.Response(serializer.data)
 
 class TrenutniUsloviView(views.APIView):
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
 
     def get(self, request):
         queryset = DnevnaTabela.objects.last()
