@@ -58,10 +58,8 @@ class UpisiPodatkeSaSenzoraView(views.APIView):
 class RelayOnView(views.APIView):
 
     def post(self, request):
-        serializer = RelaySerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
 
-        turn_on = serializer.validated_data['ukljuci']
+        turn_on = int(request.GET['ukljuci'])
 
         def komanda(sifra):
             time.sleep(5)
@@ -75,4 +73,4 @@ class RelayOnView(views.APIView):
         #else:
            # os.system("python apps/basta/relejoff.py")
            # return response.Response(serializer.data)
-        return response.Response(serializer.data)
+        return response.Response({'ukljuci': turn_on})
