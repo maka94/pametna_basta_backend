@@ -2,7 +2,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import get_user_model
 from rest_framework import views, response
-from apps.basta.serializers import IstorijaZalivanjaSerializer, TrenutniUsloviSerializer, PodaciSaSenzoraSerializer, RelaySerializer
+from apps.basta.serializers import IstorijaZalivanjaSerializer, TrenutniUsloviSerializer, PodaciSaSenzoraSerializer
 from apps.basta.models import ArhivskaTabela, DnevnaTabela
 import os, time, serial
 #from apps.basta import relejon as rl

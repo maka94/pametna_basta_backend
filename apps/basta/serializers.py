@@ -22,6 +22,3 @@ class PodaciSaSenzoraSerializer(serializers.Serializer):
     zalivanje = serializers.BooleanField(default=False)
     otvoren_prozor = serializers.BooleanField(default=False)
     radi_ventilator = serializers.BooleanField(default=False)
-
-class RelaySerializer(serializers.Serializer):
-    ukljuci = serializers.IntegerField()
